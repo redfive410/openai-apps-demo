@@ -15,8 +15,19 @@ export interface OpenAIGlobal {
   getWidgetState?: () => any;
 }
 
+export const SET_GLOBALS_EVENT_TYPE = "openai:set_globals";
+export class SetGlobalsEvent extends CustomEvent<{
+  globals: Partial<OpenAIGlobal>;
+}> {
+  readonly type = SET_GLOBALS_EVENT_TYPE;
+}
+
 declare global {
   interface Window {
     openai?: OpenAIGlobal;
+  }
+
+  interface WindowEventMap {
+    [SET_GLOBALS_EVENT_TYPE]: SetGlobalsEvent;
   }
 }

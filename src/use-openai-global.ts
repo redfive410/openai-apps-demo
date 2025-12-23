@@ -1,23 +1,37 @@
-import { useEffect, useState } from "react";
-import type { OpenAIGlobal } from "./types";
+import { useSyncExternalStore } from "react";
+import {
+  SET_GLOBALS_EVENT_TYPE,
+  SetGlobalsEvent,
+  type OpenAIGlobal,
+} from "./types";
 
-export function useOpenAIGlobal(): OpenAIGlobal | null {
-  const [openai, setOpenai] = useState<OpenAIGlobal | null>(
-    typeof window !== "undefined" ? window.openai ?? null : null
-  );
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const check = () => {
-      if (window.openai && window.openai !== openai) {
-        setOpenai(window.openai);
+export function useOpenAIGlobal<K extends keyof OpenAIGlobal>(
+  key: K
+): OpenAIGlobal[K] | null {
+  return useSyncExternalStore(
+    (onChange) => {
+      if (typeof window === "undefined") {
+        return () => {};
       }
-    };
 
-    const interval = setInterval(check, 100);
-    return () => clearInterval(interval);
-  }, [openai]);
+      const handleSetGlobal = (event: SetGlobalsEvent) => {
+        const value = event.detail.globals[key];
+        if (value === undefined) {
+          return;
+        }
 
-  return openai;
+        onChange();
+      };
+
+      window.addEventListener(SET_GLOBALS_EVENT_TYPE, handleSetGlobal, {
+        passive: true,
+      });
+
+      return () => {
+        window.removeEventListener(SET_GLOBALS_EVENT_TYPE, handleSetGlobal);
+      };
+    },
+    () => window.openai?.[key] ?? null,
+    () => window.openai?.[key] ?? null
+  );
 }
