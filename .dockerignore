@@ -1,0 +1,43 @@
+# Node modules
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Python virtual environment
+.venv
+venv
+env
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Documentation
+README.md
+LICENSE
+*.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts (we want to include assets/ directory)
+# Do NOT add assets/ here since Docker needs the pre-built frontend

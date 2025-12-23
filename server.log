@@ -1,0 +1,98 @@
+INFO:     Started server process [46066]
+INFO:     Waiting for application startup.
+[12/23/25 13:01:17] INFO     StreamableHTTP       streamable_http_manager.py:115
+                             session manager                                    
+                             started                                            
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+Demo MCP server listening on http://localhost:8000/mcp
+INFO:     20.169.78.65:0 - "POST /mcp HTTP/1.1" 200 OK
+[12/23/25 13:02:25] INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.79:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.69:0 - "POST /mcp HTTP/1.1" 202 Accepted
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.71:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:713
+                             ListToolsRequest                                   
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.69:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:713
+                             ReadResourceRequest                                
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.67:0 - "POST /mcp HTTP/1.1" 200 OK
+[12/23/25 13:02:50] INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.78:0 - "POST /mcp HTTP/1.1" 202 Accepted
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.72:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:713
+                             CallToolRequest                                    
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.71:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.72:0 - "POST /mcp HTTP/1.1" 202 Accepted
+[12/23/25 13:02:51] INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.65:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:713
+                             CallToolRequest                                    
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.79:0 - "POST /mcp HTTP/1.1" 200 OK
+[12/23/25 13:03:26] INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.74:0 - "POST /mcp HTTP/1.1" 202 Accepted
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.69:0 - "POST /mcp HTTP/1.1" 200 OK
+[12/23/25 13:03:27] INFO     Processing request of type            server.py:713
+                             CallToolRequest                                    
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.64:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.66:0 - "POST /mcp HTTP/1.1" 202 Accepted
+[12/23/25 13:03:28] INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.76:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:713
+                             CallToolRequest                                    
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.77:0 - "POST /mcp HTTP/1.1" 200 OK
+[12/23/25 13:03:42] INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.69:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.78:0 - "POST /mcp HTTP/1.1" 202 Accepted
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.75:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:713
+                             ListToolsRequest                                   
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.71:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:713
+                             ReadResourceRequest                                
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.76:0 - "POST /mcp HTTP/1.1" 200 OK
+[12/23/25 13:03:50] INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.77:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.76:0 - "POST /mcp HTTP/1.1" 202 Accepted
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.66:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:713
+                             ListToolsRequest                                   
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.72:0 - "POST /mcp HTTP/1.1" 200 OK
+[12/23/25 13:03:51] INFO     Processing request of type            server.py:713
+                             ReadResourceRequest                                
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.71:0 - "POST /mcp HTTP/1.1" 200 OK
+[12/23/25 13:04:21] INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.76:0 - "POST /mcp HTTP/1.1" 202 Accepted
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.65:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:713
+                             CallToolRequest                                    
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.65:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.68:0 - "POST /mcp HTTP/1.1" 202 Accepted
+[12/23/25 13:04:22] INFO     Terminating session: None    streamable_http.py:779
+INFO:     20.169.78.71:0 - "POST /mcp HTTP/1.1" 200 OK
+                    INFO     Processing request of type            server.py:713
+                             CallToolRequest                                    
+                    INFO     Terminating session: None    streamable_http.py:779

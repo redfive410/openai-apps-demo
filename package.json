@@ -1,0 +1,38 @@
+{
+  "name": "openai-apps-demo",
+  "version": "1.0.0",
+  "description": "OpenAI Apps SDK Demo - Demo Widget Example",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsx ./build-all.mts",
+    "serve": "serve ./assets -p 4444 --cors",
+    "tsc": "tsc -b",
+    "tsc:app": "tsc -p tsconfig.app.json",
+    "tsc:node": "tsc -p tsconfig.node.json"
+  },
+  "keywords": ["openai", "apps-sdk", "mcp", "widget"],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.13.1",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^4.5.2",
+    "autoprefixer": "^10.4.21",
+    "fast-glob": "^3.3.3",
+    "postcss": "^8.5.6",
+    "serve": "^14.2.4",
+    "tailwindcss": "^4.1.11",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.1"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.536.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
