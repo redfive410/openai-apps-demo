@@ -10,7 +10,12 @@
     "tsc:app": "tsc -p tsconfig.app.json",
     "tsc:node": "tsc -p tsconfig.node.json"
   },
-  "keywords": ["openai", "apps-sdk", "mcp", "widget"],
+  "keywords": [
+    "openai",
+    "apps-sdk",
+    "mcp",
+    "widget"
+  ],
   "author": "",
   "license": "MIT",
   "packageManager": "pnpm@10.13.1",
@@ -30,6 +35,7 @@
     "vite": "^7.1.1"
   },
   "dependencies": {
+    "@openai/apps-sdk-ui": "^0.2.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.536.0",
     "react": "^19.1.1",
