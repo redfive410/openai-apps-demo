@@ -114,56 +114,13 @@ The widget is rendered inline in ChatGPT using the built assets.
 
 ## Deploying
 
-### Docker Deployment (Recommended)
-
-The easiest way to deploy is using Docker:
+### Deploy to Google Cloud Run
 
 ```bash
-# 1. Build frontend assets
-pnpm run build
-
-# 2. Build Docker image (multi-platform if needed)
-docker build --platform linux/amd64 -t openai-apps-demo .
-
-# 3. Tag and push to your registry
-docker tag openai-apps-demo gcr.io/YOUR_PROJECT/openai-apps-demo
-docker push gcr.io/YOUR_PROJECT/openai-apps-demo
-
-# 4. Deploy to Google Cloud Run (example)
-gcloud run deploy openai-apps-demo \
-  --image gcr.io/YOUR_PROJECT/openai-apps-demo \
-  --port 8000 \
-  --allow-unauthenticated \
-  --region us-central1
-
-# 5. Add your production MCP endpoint to ChatGPT
-# https://YOUR_SERVICE_URL/mcp
+./deploy.sh
 ```
 
-### Alternative: Manual Deployment
-
-If deploying without Docker:
-
-1. Build the widgets:
-   ```bash
-   pnpm run build
-   ```
-
-2. Install dependencies with uv:
-   ```bash
-   uv sync
-   ```
-
-3. Deploy the entire application directory (including `assets/`)
-
-4. Run the server:
-   ```bash
-   uv run python demo_server/main.py
-   ```
-
-5. Add your production MCP endpoint to ChatGPT
-
-**Note:** The Python server serves both the MCP protocol and static assets. You don't need a separate asset server or CDN.
+This will build, containerize, and deploy your app to GCP. You'll get an MCP endpoint URL to add to ChatGPT.
 
 ## Customizing
 

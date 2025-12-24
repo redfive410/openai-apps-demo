@@ -83,7 +83,7 @@ mcp = FastMCP(
     name="demo-app",
     stateless_http=True,
     transport_security=TransportSecuritySettings(
-        allowed_hosts=["unrestricted-nuptially-gage.ngrok-free.dev", "localhost", "127.0.0.1"],
+        allowed_hosts=["openai-apps-demo-7lsyxpfena-uw.a.run.app", "unrestricted-nuptially-gage.ngrok-free.dev", "localhost", "127.0.0.1"],
     ),
 )
 
