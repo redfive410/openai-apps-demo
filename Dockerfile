@@ -17,4 +17,4 @@ RUN uv sync
 EXPOSE 8000
 
 # Run the MCP server
-CMD ["uv", "run", "python", "counter_server/main.py"]
+CMD ["uv", "run", "python", "demo_server/main.py"]

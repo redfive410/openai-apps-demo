@@ -1,43 +1,47 @@
-# Node modules
-node_modules
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs (except assets which we need)
+dist/
+build/
+.vite/
+coverage/
+
+# Logs and caches
+*.log
+pnpm-debug.log
 npm-debug.log
 yarn-error.log
-pnpm-debug.log
+*.tsbuildinfo
+.eslintcache
 
-# Python virtual environment
-.venv
-venv
-env
+# Environment files
+.env
+.env.local
+.env.*.local
 
-# Python cache
-__pycache__
-*.pyc
-*.pyo
-*.pyd
-.Python
-pip-log.txt
-pip-delete-this-directory.txt
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/
+.claude
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
 
 # Git
-.git
+.git/
 .gitignore
-.gitattributes
-
-# IDE
-.vscode
-.idea
-*.swp
-*.swo
-*~
 
 # Documentation
-README.md
-LICENSE
 *.md
+!README.md
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Build artifacts (we want to include assets/ directory)
-# Do NOT add assets/ here since Docker needs the pre-built frontend
+# Deployment
+deploy.sh
+Dockerfile
+.dockerignore
