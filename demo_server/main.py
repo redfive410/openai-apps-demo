@@ -132,6 +132,7 @@ def _tool_meta(tool_name: str) -> Dict[str, Any]:
             "openai/outputTemplate": DEMO_WIDGET.template_uri,
             "openai/toolInvocation/invoking": "Resetting demo",
             "openai/toolInvocation/invoked": "Reset demo",
+            "openai/widgetAccessible": True,
         }
     return {}
 
@@ -231,6 +232,8 @@ def _reply_with_demo(message: str = "") -> types.CallToolResult:
         "openai/outputTemplate": DEMO_WIDGET.template_uri,
         "openai/widgetAccessible": True,
         "openai/resultCanProduceWidget": True,
+        "customMessage": f"Demo value is currently {demo_value}",
+        "timestamp": "2025-12-28",
     }
 
     return types.CallToolResult(
