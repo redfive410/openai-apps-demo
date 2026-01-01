@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useOpenAIGlobal } from "../use-openai-global";
 import { Markdown } from "@openai/apps-sdk-ui/components/Markdown";
 import { Button, ButtonLink } from "@openai/apps-sdk-ui/components/Button";
@@ -5,8 +6,21 @@ import { EmptyMessage } from "@openai/apps-sdk-ui/components/EmptyMessage";
 import "./demo.css";
 
 export default function App() {
-  const toolOutput = useOpenAIGlobal("toolOutput");
-  const toolResponseMetadata = useOpenAIGlobal("toolResponseMetadata");
+  const initialToolOutput = useOpenAIGlobal("toolOutput");
+  const initialToolResponseMetadata = useOpenAIGlobal("toolResponseMetadata");
+
+  // Use local state to manage the current tool output
+  const [toolOutput, setToolOutput] = useState(initialToolOutput);
+  const [toolResponseMetadata, setToolResponseMetadata] = useState(initialToolResponseMetadata);
+
+  // Update local state when initial values change
+  useEffect(() => {
+    setToolOutput(initialToolOutput);
+  }, [initialToolOutput]);
+
+  useEffect(() => {
+    setToolResponseMetadata(initialToolResponseMetadata);
+  }, [initialToolResponseMetadata]);
 
   const jsonOutput = !toolOutput
     ? null
@@ -18,9 +32,20 @@ export default function App() {
     ? `\`\`\`json\n${jsonOutput}\n\`\`\``
     : null;
 
-  const handleResetTool = () => {
+  const handleResetTool = async () => {
     if (window.openai?.callTool) {
-      window.openai.callTool("reset", {});
+      try {
+        const result = await window.openai.callTool("reset", {});
+        // Update local state with the new tool output
+        if (result?.structuredContent) {
+          setToolOutput(result.structuredContent);
+        }
+        if (result?._meta) {
+          setToolResponseMetadata(result._meta);
+        }
+      } catch (error) {
+        console.error("Error calling reset tool:", error);
+      }
     } else {
       console.error("window.openai.callTool is not available");
     }
@@ -61,7 +86,7 @@ export default function App() {
           color="danger"
           onClick={handleResetTool}
         >
-          Reset Counter
+          Reset
         </Button>
         <ButtonLink
           color="primary"
