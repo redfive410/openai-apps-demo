@@ -63,17 +63,18 @@ export default function App() {
         <div className="tool-output">
           <h2>Tool Output Data:</h2>
           <Markdown>{markdownContent}</Markdown>
-          {toolResponseMetadata && (
+          {toolOutput && (
             <div>
-              <h2>Custom Metadata:</h2>
-              {toolResponseMetadata.customMessage && (
+              <h2>Tool Output Message:</h2>
+              {toolOutput.message && (
                 <p style={{ padding: '10px', background: '#f0f0f0', borderRadius: '5px' }}>
-                  <strong>Message:</strong> {toolResponseMetadata.customMessage}
+                  <strong>message:</strong> {toolOutput.message}
                 </p>
               )}
-              {toolResponseMetadata.timestamp && (
+              <h2>Tool Response Metadata:</h2>
+              {toolResponseMetadata?.["demo/myKey"] && (
                 <p style={{ padding: '10px', background: '#e8f4f8', borderRadius: '5px' }}>
-                  <strong>Timestamp:</strong> {toolResponseMetadata.timestamp}
+                  <strong>demo/myKey:</strong> {toolResponseMetadata["demo/myKey"]}
                 </p>
               )}
             </div>
