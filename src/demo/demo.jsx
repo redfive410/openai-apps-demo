@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <div className="demo-container">
-      <h1>Tool Output Display</h1>
+      <h1>ChatGPT Apps Demo</h1>
 
       {!markdownContent ? (
         <EmptyMessage>
