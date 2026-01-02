@@ -132,7 +132,6 @@ def _tool_meta(tool_name: str) -> Dict[str, Any]:
             "openai/outputTemplate": DEMO_WIDGET.template_uri,
             "openai/toolInvocation/invoking": "Resetting demo",
             "openai/toolInvocation/invoked": "Reset demo",
-            "openai/widgetAccessible": True,
         }
     return {}
 
@@ -232,13 +231,14 @@ def _reply_with_demo(message: str = "") -> types.CallToolResult:
         "openai/outputTemplate": DEMO_WIDGET.template_uri,
         "openai/widgetAccessible": True,
         "openai/resultCanProduceWidget": True,
-        "customMessage": f"Demo value is currently {demo_value}",
-        "timestamp": "2025-12-28",
+        "demo/counter": demo_value,
     }
 
     return types.CallToolResult(
         content=content,
-        structuredContent={"count": demo_value},
+        structuredContent={
+            "message": f"Demo value is updated."
+        },
         _meta=meta,
     )
 
@@ -270,7 +270,7 @@ async def _call_tool_request(req: types.CallToolRequest) -> types.ServerResult:
         demo_value += amount
 
         return types.ServerResult(
-            _reply_with_demo(f"Demo incremented by {amount}. Current value: {demo_value}")
+            _reply_with_demo(f"Demo incremented by {amount}")
         )
 
     elif tool_name == "decrement":
@@ -293,7 +293,7 @@ async def _call_tool_request(req: types.CallToolRequest) -> types.ServerResult:
         demo_value -= amount
 
         return types.ServerResult(
-            _reply_with_demo(f"Demo decremented by {amount}. Current value: {demo_value}")
+            _reply_with_demo(f"Demo decremented by {amount}")
         )
 
     elif tool_name == "reset":
