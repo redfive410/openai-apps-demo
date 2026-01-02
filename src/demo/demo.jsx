@@ -36,13 +36,15 @@ export default function App() {
     if (window.openai?.callTool) {
       try {
         const result = await window.openai.callTool("reset", {});
+        console.log("Reset tool result:", result); // Debug log
         // Update local state with the new tool output
         if (result?.structuredContent) {
           setToolOutput(result.structuredContent);
         }
-        if (result?._meta) {
-          setToolResponseMetadata(result._meta);
-        }
+        // The metadata might be at the top level or nested
+        const metadata = result?.meta || {};
+        console.log("Extracted metadata:", metadata); // Debug log
+        setToolResponseMetadata(metadata);
       } catch (error) {
         console.error("Error calling reset tool:", error);
       }
@@ -72,9 +74,13 @@ export default function App() {
                 </p>
               )}
               <h2>Tool Response Metadata:</h2>
-              {toolResponseMetadata?.["demo/myKey"] && (
+              {toolResponseMetadata && "demo/counter" in toolResponseMetadata ? (
                 <p style={{ padding: '10px', background: '#e8f4f8', borderRadius: '5px' }}>
-                  <strong>demo/myKey:</strong> {toolResponseMetadata["demo/myKey"]}
+                  <strong>demo/counter:</strong> {String(toolResponseMetadata["demo/counter"])}
+                </p>
+              ) : (
+                <p style={{ padding: '10px', background: '#f0f0f0', borderRadius: '5px', color: '#666' }}>
+                  No metadata available
                 </p>
               )}
             </div>
