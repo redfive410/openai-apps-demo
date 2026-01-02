@@ -36,15 +36,14 @@ export default function App() {
     if (window.openai?.callTool) {
       try {
         const result = await window.openai.callTool("reset", {});
-        console.log("Reset tool result:", result); // Debug log
+
         // Update local state with the new tool output
         if (result?.structuredContent) {
           setToolOutput(result.structuredContent);
         }
-        // The metadata might be at the top level or nested
-        const metadata = result?.meta || {};
-        console.log("Extracted metadata:", metadata); // Debug log
-        setToolResponseMetadata(metadata);
+        if (result?.meta ){
+           setToolResponseMetadata(result?.meta);
+        }
       } catch (error) {
         console.error("Error calling reset tool:", error);
       }
